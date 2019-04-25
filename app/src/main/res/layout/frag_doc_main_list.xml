@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <!--  This is the main content -->
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_margin="15dp" android:background="@drawable/frame"
+        android:orientation="vertical" android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/doc_list_portrait"
+            android:layout_width="90dp"
+            android:layout_height="110dp"
+            android:background="@mipmap/portrait"/>
+        <TextView
+            android:id="@+id/doc_list_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender:"
+            android:layout_toRightOf="@id/doc_list_portrait"
+            android:layout_alignTop="@id/doc_list_portrait"
+            style="@style/list_item"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/doc_list_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age:"
+            android:layout_below="@id/doc_list_gender"
+            android:layout_alignLeft="@id/doc_list_gender"
+            style="@style/list_item"
+            />
+        <TextView
+            android:id="@+id/doc_list_heart_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Heart Rate:"
+            android:layout_below="@id/doc_list_age"
+            android:layout_alignLeft="@id/doc_list_age"
+            style="@style/list_item"/>
+        <TextView
+            android:id="@+id/doc_list_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pressure:"
+            android:layout_below="@id/doc_list_heart_rate"
+            android:layout_alignLeft="@id/doc_list_heart_rate"
+            style="@style/list_item"/>
+
+        <TextView
+            android:id="@+id/doc_list_medicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medicine:"
+            android:layout_below="@id/doc_list_portrait"
+            android:layout_alignLeft="@id/doc_list_portrait"
+            style="@style/list_item"/>
+
+        <Button
+            android:id="@+id/doc_list_med"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btn"
+            android:text="Edit Medicine"
+            android:textAllCaps="false"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/doc_list_medicine"
+            android:layout_alignLeft="@id/doc_list_medicine" />
+
+        <Button
+            android:id="@+id/doc_list_mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btn"
+            android:text="Send Messages"
+            android:textAllCaps="false"
+            android:layout_toRightOf="@id/doc_list_med"
+            android:layout_alignBottom="@id/doc_list_med"
+            android:layout_marginLeft="15dp"
+            />
+
+    </RelativeLayout>
+
+    <!--  This is the title label -->
+    <TextView
+        android:id="@+id/doc_list_name"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@android:color/white" android:padding="5dp"
+        android:text="Testing"
+        android:layout_marginLeft="30dp" android:textColor="@android:color/black" />
+
+</RelativeLayout>

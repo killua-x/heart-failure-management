@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register">
+
+
+    <Button
+        android:id="@+id/register_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_back"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Register"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/stroke"
+        android:layout_below="@id/register_back"
+        android:layout_marginTop="5dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/reg_id"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@id/reg_id"
+        android:text="ID:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/reg_id"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_back"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="29dp"
+        android:layout_marginRight="44dp"
+        android:background="@drawable/shape_input2"
+        android:digits="@string/id_restrict"
+        android:hint="Only letter, num or '_'"
+        android:padding="3dp"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/reg_name"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@id/reg_name"
+        android:text="Name:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/reg_name"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_id"
+        android:layout_alignStart="@id/reg_id"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_input2"
+        android:inputType="textPersonName"
+        android:padding="3dp"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/reg_password"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@id/reg_password"
+        android:text="Password:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/reg_password"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_name"
+        android:layout_alignStart="@id/reg_name"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_input2"
+        android:inputType="textPassword"
+        android:padding="3dp"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/reg_confirm_password"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@id/reg_confirm_password"
+        android:text="Confirm:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/reg_confirm_password"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_password"
+        android:layout_alignStart="@id/reg_password"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_input2"
+        android:inputType="textPassword"
+        android:padding="3dp"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/reg_gender"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@id/reg_gender"
+        android:text="Gender:"
+        android:textSize="18sp" />
+    <RadioGroup
+        android:id="@+id/reg_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_confirm_password"
+        android:layout_alignStart="@id/reg_confirm_password"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/reg_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/reg_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/reg_gender"
+            android:text="Female"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/reg_birthday"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@id/reg_birthday"
+        android:text="Birthday:"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/reg_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_below="@id/reg_gender"
+        android:layout_alignStart="@id/reg_gender"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_input2"
+        android:padding="3dp"
+        android:singleLine="true"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/reg_type"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@id/reg_type"
+        android:text="Type:"
+        android:textSize="18sp" />
+    <RadioGroup
+        android:id="@+id/reg_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_birthday"
+        android:layout_alignStart="@id/reg_birthday"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/reg_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctor"
+            android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/reg_patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient"
+            android:textSize="18sp"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/reg_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/button"
+        android:text="Register"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/reg_type"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
