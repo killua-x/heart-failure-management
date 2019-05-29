@@ -2,6 +2,7 @@ package com.killua.heartfailuremanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import android.view.inputmethod.InputMethodManager;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,8 +46,12 @@ public class chat extends AppCompatActivity {
             public void onClick(View v) {
                 String text=mes.getText().toString();
                 mes.setText("");
-                if(text!=""){
+                if(!text.isEmpty()){
                     madapter.add(new message(1,R.mipmap.portrait,from,new Date(System.currentTimeMillis()),text));
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+                    mes.clearFocus();
+                    con.setSelection(madapter.getCount()-1);
                 }
             }
         });

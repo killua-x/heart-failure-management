@@ -11,7 +11,7 @@
 
         <ImageView
             android:id="@+id/doc_list_portrait"
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="110dp"
             android:background="@mipmap/portrait"/>
         <TextView

@@ -4,49 +4,47 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-public class doctor_interface extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener,
+public class patient_interface extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener,
         ViewPager.OnPageChangeListener{
     ViewPager vp;
-    fg_doc mAdapter;
-    RadioGroup doc_tab;
-    RadioButton doc_main;
-    RadioButton doc_set;
+    fg_pat mAdapter;
+    RadioGroup tab;
+    RadioButton main;
+    RadioButton set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_doctor_interface);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        mAdapter = new fg_doc(getSupportFragmentManager());
+        setContentView(R.layout.activity_patient_interface);
+        mAdapter = new fg_pat(getSupportFragmentManager());
         bind();
     }
 
     private void bind(){
-        doc_tab=findViewById(R.id.doc_tab);
-        doc_main=findViewById(R.id.doc_main);
-        doc_set=findViewById(R.id.doc_set);
-        doc_tab.setOnCheckedChangeListener(this);
+        tab=findViewById(R.id.tab);
+        main=findViewById(R.id.main);
+        set=findViewById(R.id.set);
+        tab.setOnCheckedChangeListener(this);
 
         vp=findViewById(R.id.vp);
         vp.setAdapter(mAdapter);
         vp.setCurrentItem(0);
         vp.addOnPageChangeListener(this);
 
-        doc_main.setChecked(true);
+        main.setChecked(true);
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {
-            case R.id.doc_main:
+            case R.id.main:
                 vp.setCurrentItem(0);
                 break;
-            case R.id.doc_set:
+            case R.id.set:
                 vp.setCurrentItem(1);
                 break;
         }
@@ -66,10 +64,10 @@ public class doctor_interface extends AppCompatActivity implements RadioGroup.On
         if (state == 2) {
             switch (vp.getCurrentItem()) {
                 case 0:
-                    doc_main.setChecked(true);
+                    main.setChecked(true);
                     break;
                 case 1:
-                    doc_set.setChecked(true);
+                    set.setChecked(true);
                     break;
             }
         }

@@ -30,6 +30,9 @@ dependencies {
 
     implementation 'com.wdullaer:materialdatetimepicker:4.1.2'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //Volley
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0-alpha04'

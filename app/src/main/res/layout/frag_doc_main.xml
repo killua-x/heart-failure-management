@@ -2,8 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@android:color/white">
-
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_toLeftOf="@id/search"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/shape_input1"
+        android:layout_margin="5dp"
+        android:textSize="18sp"
+        android:hint="patient_id"
+        android:padding="5dp"
+        android:drawableLeft="@mipmap/search"
+        android:singleLine="true"
+        />
+    <Button
+        android:id="@+id/add"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/add"/>
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        style="@style/btn"
+        android:text="search"
+        android:textAllCaps="false"
+        android:layout_toLeftOf="@id/add"
+        android:layout_marginTop="5dp"
+        />
     <ListView
+        android:layout_below="@id/search_bar"
         android:id="@+id/fg_doc_main_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

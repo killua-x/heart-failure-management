@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Your Current Doctor"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:visibility="gone"
+        />
+    <View
+        android:id="@+id/div2"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@id/title2"
+        android:background="@color/stroke"
+        android:visibility="gone"/>
+    <!--  This is the main content -->
+    <RelativeLayout
+        android:id="@+id/info"
+        android:layout_below="@id/div2"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_margin="15dp" android:background="@drawable/frame"
+        android:orientation="vertical" android:padding="20dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/portrait"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@mipmap/portrait"/>
+        <TextView
+            android:id="@+id/doc_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id:"
+            android:layout_toRightOf="@id/portrait"
+            android:layout_alignTop="@id/portrait"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="13dp"
+            />
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age:"
+            android:layout_below="@id/doc_id"
+            android:layout_alignLeft="@id/doc_id"
+            style="@style/list_item"
+            />
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender:"
+            android:layout_below="@id/age"
+            android:layout_alignLeft="@id/age"
+            style="@style/list_item"/>
+
+
+        <TextView
+            android:id="@+id/medicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medicine:"
+            android:layout_below="@id/portrait"
+            android:layout_alignLeft="@id/portrait"
+            style="@style/list_item"/>
+
+        <Button
+            android:id="@+id/unbind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btn"
+            android:text="UNBIND"
+            android:textAllCaps="false"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/medicine"
+            android:layout_alignLeft="@id/medicine" />
+
+        <Button
+            android:id="@+id/mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btn"
+            android:text="Send Messages"
+            android:textAllCaps="false"
+            android:layout_toRightOf="@id/unbind"
+            android:layout_alignBottom="@id/unbind"
+            android:layout_marginLeft="15dp"
+            />
+
+    </RelativeLayout>
+
+    <!--  This is the title label -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@android:color/white" android:padding="5dp"
+        android:text="Testing"
+        android:layout_below="@id/div2"
+        android:layout_marginLeft="30dp" android:textColor="@android:color/black"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Pick up your Doctor"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:visibility="gone"
+        />
+    <View
+        android:id="@+id/div1"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@id/title1"
+        android:background="@color/stroke"
+        android:visibility="gone"/>
+    <ListView
+        android:layout_below="@id/div1"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:visibility="gone">
+    </ListView>
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="Contact with your doctor to send a binding request to you!"
+        android:textSize="20sp"
+        android:textColor="@color/fontshallow"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</RelativeLayout>

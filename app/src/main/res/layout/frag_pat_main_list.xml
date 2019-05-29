@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <!--  This is the main content -->
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_margin="15dp" android:background="@drawable/frame"
+        android:orientation="vertical" android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/portrait"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@mipmap/portrait"/>
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id: "
+            android:layout_toRightOf="@id/portrait"
+            android:layout_alignTop="@id/portrait"
+            style="@style/list_item"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age: "
+            android:layout_below="@id/id"
+            android:layout_alignLeft="@id/id"
+            style="@style/list_item"
+            />
+        <Button
+            android:id="@+id/con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btn"
+            android:text="Choose him"
+            android:textAllCaps="false"
+            android:layout_below="@id/age"
+            android:layout_alignLeft="@id/age"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="0dp"
+            />
+
+    </RelativeLayout>
+
+    <!--  This is the title label -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@android:color/white" android:padding="5dp"
+        android:text="Testing"
+        android:layout_marginLeft="30dp" android:textColor="@android:color/black" />
+
+</RelativeLayout>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.killua.heartfailuremanagement">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,7 +21,8 @@
         <activity android:name=".register" />
         <activity android:name=".doctor_interface" />
         <activity android:name=".chat" />
-        <activity android:name=".change_password"></activity>
+        <activity android:name=".change_password" />
+        <activity android:name=".patient_interface"></activity>
     </application>
 
 </manifest>

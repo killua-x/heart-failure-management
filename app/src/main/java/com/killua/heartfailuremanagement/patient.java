@@ -9,8 +9,7 @@ public class patient {
     int pressure;
     String medicine;
 
-    public patient() {
-    }
+
     public patient(String tname, String tgender, int tage,int theart_rate,int tpressure,int tportrait,String tmedicine) {
         name=tname;
         gender=tgender;

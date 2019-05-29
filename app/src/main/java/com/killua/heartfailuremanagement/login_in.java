@@ -34,7 +34,7 @@ public class login_in extends AppCompatActivity {
         button_log_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(login_in.this,doctor_interface.class));
+                startActivity(new Intent(login_in.this,patient_interface.class));
             }
         });
     }

@@ -91,7 +91,7 @@
         android:layout_height="35dp"
         android:layout_margin="8dp"
         android:background="@mipmap/button"
-        android:text="Sign in"
+        android:text="Log in"
         android:textColor="@color/fontcolor"
         android:textSize="15sp"
         app:layout_constraintRight_toRightOf="@id/password"
