@@ -53,7 +53,8 @@ public class register extends AppCompatActivity implements DatePickerDialog.OnDa
         register_button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                check_before_sub();
+                setResult(1);
+                finish();
             }
         });
         reg_birthday.setOnClickListener(new View.OnClickListener() {
@@ -67,8 +68,7 @@ public class register extends AppCompatActivity implements DatePickerDialog.OnDa
         reg_sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResult(0);
-                finish();
+                check_sub();
             }
         });
     }
@@ -83,7 +83,7 @@ public class register extends AppCompatActivity implements DatePickerDialog.OnDa
         );
         reg_id=findViewById(R.id.reg_id);
         reg_name=findViewById(R.id.reg_name);
-        reg_password=findViewById(R.id.password);
+        reg_password=findViewById(R.id.reg_password);
         reg_confirm=findViewById(R.id.reg_confirm_password);
         reg_gender=findViewById(R.id.reg_gender);
         reg_birthday=findViewById(R.id.reg_birthday);
@@ -92,15 +92,15 @@ public class register extends AppCompatActivity implements DatePickerDialog.OnDa
     }
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        String date = dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
+        String date = year+"-"+(monthOfYear+1)+"-"+dayOfMonth;
         reg_birthday.setText(date);
     }
 
     //向服务器发送注册请求
     private void SignupRequest(Account user) {
         //请求地址
-        String url = "http://192.168.199.163:8080/hfm/SignupServlet";    //注①
-        String tag = "Signup";    //注②
+        String url = ((Data)getApplication()).bd.getString("url");  //注①
+        String tag = "Register";    //注②
 
         //取得请求队列
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -118,20 +118,19 @@ public class register extends AppCompatActivity implements DatePickerDialog.OnDa
                             int result = jsonObject.getInt("result");  //注④
                             switch(result){
                                 case 0:setResult(0);finish();break;     //注册成功
-                                case 1:Toast.makeText(getApplicationContext(),"The server is busy.",Toast.LENGTH_SHORT).show();break;   //注册失败
-                                case 2:Toast.makeText(getApplicationContext(),"The id has already existed.",Toast.LENGTH_SHORT).show();
+                                case 1:Toast.makeText(getApplicationContext(),"The id has already existed.",Toast.LENGTH_SHORT).show();
                                         reg_id.requestFocus();break;   //id已存在
                             }
                         } catch (JSONException e) {
                             //做自己的请求异常操作，如Toast提示（“无网络连接”等）
-                            Toast.makeText(getApplicationContext(),"Abnormally connect.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Syntax Error!",Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //做自己的响应错误操作，如Toast提示（“请稍后重试”等）
-                Toast.makeText(getApplicationContext(),"Failed to connect.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Failed to connect!.",Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -141,9 +140,9 @@ public class register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("password", user.getpassword());
                 params.put("name",user.getname());
                 params.put("gender",String.valueOf(user.getgender()));
-                params.put("birthday",user.getbirthday());
+                params.put("birthday",user.getbirth());
                 params.put("type",String.valueOf(user.gettype()));
-
+                params.put("RequestType",tag);
                 return params;
             }
         };
@@ -155,22 +154,50 @@ public class register extends AppCompatActivity implements DatePickerDialog.OnDa
         requestQueue.add(request);
     }
 
-    private void check_before_sub(){
+    private void check_sub(){
         Account user=new Account();
+        //检测id长度
         String id=reg_id.getText().toString().trim();
-        if(id.length()>=6&&id.length()<=20){
+        if(id.length()>=2&&id.length()<=20){
             user.setid(id);
         }
         else{
             reg_id.setFocusable(true);
-            Toast.makeText(getApplicationContext(),"id should have a length rang between 6 and 20",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"id should have a length range between 6 and 20",Toast.LENGTH_SHORT).show();
             return;
         }
+        //检测姓名长度
+        String name=reg_name.getText().toString().trim();
+        if(name.length()>0&&name.length()<=20){
+            user.setname(name);
+        }
+        else {
+            reg_name.setFocusable(true);
+            Toast.makeText(getApplicationContext(), "name should have a length range between 1 and 20", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //检测密码
+        String password=reg_password.getText().toString().trim();
+        String confirm=reg_confirm.getText().toString().trim();
+        if(password.length()>=2&&password.length()<=20){
+            if(password.equals(confirm)){
+                user.setpassword(password);
+            }
+            else{
+                reg_confirm.setFocusable(true);
+                Toast.makeText(getApplicationContext(), "the password doesn't match!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        else{
+            reg_password.setFocusable(true);
+            Toast.makeText(getApplicationContext(), "password should have a length range between 6 and 20", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //检测生日
 
-        user.setname(reg_name.getText().toString());
-        user.setpassword(reg_password.getText().toString());
         user.setgender(reg_gender.getCheckedRadioButtonId()==R.id.reg_male?1:0);
-        user.setbirthday(reg_birthday.getText().toString());
+        user.setbirth(reg_birthday.getText().toString());
         user.settype(reg_type.getCheckedRadioButtonId()==R.id.reg_doctor?1:0);
         SignupRequest(user);
     }

@@ -84,7 +84,7 @@ public class MessageAdapter extends BaseAdapter {
         message obj = mData.get(position);
         //设置下控件的值
         holder.portrait.setImageResource(obj.portrait);
-        holder.head.setText(obj.name+" --"+obj.time.toString());
+        holder.head.setText(obj.name+" --"+obj.time);
         holder.text.setText(obj.text);
         return convertView;
     }

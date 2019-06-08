@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">HeartFailureManagement</string>
-    <string name="id_restrict">1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM_</string>
-
+    <string name="id_restrict">1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM_-</string>
+    <string name="ipconfig"><u>Click here to config your connect setting</u></string>
 </resources>

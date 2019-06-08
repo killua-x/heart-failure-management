@@ -1,6 +1,6 @@
 package com.killua.heartfailuremanagement;
 
-public class doctor {
+public class doctor{
     int portrait;
     String name;
     String gender;

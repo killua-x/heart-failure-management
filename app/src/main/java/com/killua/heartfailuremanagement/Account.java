@@ -5,7 +5,7 @@ public class Account {
     private String name;
     private String password;
     private int gender;
-    private String birthday;
+    private String birth;
     private int type;
 
     public Account(){}
@@ -38,11 +38,11 @@ public class Account {
         return gender;
     }
 
-    public void setbirthday(String birthday){
-        this.birthday=birthday;
+    public void setbirth(String birth){
+        this.birth=birth;
     }
-    public String getbirthday(){
-        return birthday;
+    public String getbirth(){
+        return birth;
     }
 
     public void settype(int type){
